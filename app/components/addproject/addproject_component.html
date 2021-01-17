@@ -1,0 +1,41 @@
+
+{{componentName}}
+
+<!--{{componentname}}-->
+
+<style type="text/css">
+
+    .btn .btn-primary {
+        color: #fff;
+        background-color: #5e64ff;
+        border-color: #5e64ff;
+    }
+
+</style>
+
+<div>
+    <br><br>
+    <form class="col-4" ng-submit="addProject()">
+        <b>{{res}}</b>
+        <p>ADD PROJECT</p>
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="title" name="title" placeholder="Title">
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="description" name="description" placeholder="Decription of Project">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="manager">Assign to (Project Manager)</label>
+            <select class="form-control" id="manager" name="manager" ng-model="manager">
+                <option value="" selected hidden>Select Manager</option>
+                <option ng-repeat="res in data" value="{{res.id}}">{{res.name +' ('+res.email+')'}}</option>
+            </select>
+        </div>
+        <br>
+        <input type="submit" name="insert1" class="btn btn-primary col-12" value="Submit">
+    </form>
+
+
+</div>

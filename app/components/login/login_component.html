@@ -1,0 +1,38 @@
+
+<div ng-if="login">
+<br><br><br>
+    <div>
+        <form class="col-4" ng-submit="loginUser()" name="loginForm">
+            <div ng-class="{'success':data.status === 1, 'error':data.status === 0}">{{data.message}}</div>
+            <h6>Login</h6>
+            <div class="form-group">
+                <input type="email" class="form-control" ng-model="email" name="email" placeholder="Enter email">
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="password" class="form-control" ng-model="password" name="password" placeholder="Password" autocomplete="true">
+            </div>
+            <br>
+            <input type="submit" name="insert" class="btn btn-primary col-12" value="Submit">
+        </form>
+    </div>
+</div>
+
+<div ng-if="dashboard">
+    <dashboard-component></dashboard-component>
+    <div ng-class="{'adduser':data.role =='1', 'removeadduser':data.role !=='1'}">
+<!--        {{data.role}}-->
+        <superadmin-component></superadmin-component>
+
+    </div>
+
+    <div ng-if="data.role =='2'">
+       <viewproject-component></viewproject-component>
+    </div>
+
+    <div ng-if="data.role =='3'">
+        <viewproject-component></viewproject-component>
+    </div>
+
+</div>
+

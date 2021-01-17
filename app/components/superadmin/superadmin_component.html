@@ -1,0 +1,22 @@
+<div class="row container justify-content-md-center" style="margin: 100px auto;">
+    <button type="button" ng-click="addEmployee()" class="btn btn-outline-primary col col-lg-2">ADD EMPLOYEE</button>
+    <button type="button" ng-click="addProject()" class="btn btn-outline-primary col col-lg-2">ADD PROJECT</button>
+    <button type="button" ng-click="viewTeam()" class="btn btn-outline-primary col col-lg-2">TEAM</button>
+    <button type="button" ng-click="viewProject()" class="btn btn-outline-primary col col-lg-2">VIEW PROJECT</button>
+</div>
+
+<div ng-if="adduser">
+    <adduser-component></adduser-component>
+</div>
+
+<div ng-if="addproject">
+    <addproject-component></addproject-component>
+</div>
+
+<div ng-if="viewteam">
+    <team-component></team-component>
+</div>
+
+<div ng-if="viewproject">
+    <viewproject-component></viewproject-component>
+</div>

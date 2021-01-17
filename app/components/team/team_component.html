@@ -1,0 +1,34 @@
+<div ng-if="team">
+    <label>Search: <input ng-model="searchText"></label>
+<table class="table container justify-content-md-center">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">Sl.No</th>
+        <th scope="col">User ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email ID</th>
+        <th scope="col">Role</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{text}}
+    <tr ng-repeat="user in message | filter:searchText track by $index">
+        <th scope="row">{{$index + 1}}</th>
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{
+            user.role === '1' ?'CEO':user.role === '2' ?'Manager':user.role === '3' ?'Team Leader':'Team Member'}}</td>
+        <td>{{user.status === '1' ?'Active':'Inactive'}}</td>
+        <td>
+            <span style="color: red" class="glyphicon glyphicon-trash" ng-click="removeUser(user)"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<div ng-if="teamview">
+    <team-component></team-component>
+</div>

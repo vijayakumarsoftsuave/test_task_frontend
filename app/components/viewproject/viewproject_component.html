@@ -1,0 +1,32 @@
+<div ng-if="team">
+    <label>Search: <input ng-model="searchText"></label>
+    <table class="table container justify-content-md-center">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Sl.No</th>
+            <th scope="col">Project ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Assigned to</th>
+            <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{text}}
+        <tr ng-repeat="project in message | filter:searchText track by $index">
+            <th scope="row">{{$index + 1}}</th>
+            <td>{{project.id}}</td>
+            <td>{{project.title}}</td>
+            <td>{{project.description}}</td>
+            <td>{{project.name ===NULL?'No Manager':project.name}}</td>
+            <td>{{project.status === '1' ?'Open':'Completed'}}</td>
+<!--            <td>-->
+<!--                <span style="color: red" class="glyphicon glyphicon-trash" ng-click="removeUser(user)"></span>-->
+<!--            </td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div ng-if="teamview">
+    <team-component></team-component>
+</div>
